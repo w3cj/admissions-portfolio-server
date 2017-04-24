@@ -9,7 +9,6 @@ const Strategy = new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
 }, (accessToken, refreshToken, profile, cb) => {
-  console.log(profile);
   if (profile.email && profile.email.match(/@galvanize.com/g)) {
     User.findOrCreateSetToken({
       google_id: profile.id,

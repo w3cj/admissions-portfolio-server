@@ -51,6 +51,7 @@ class Portfolio {
       portfolio_id,
     }, {
       $set: {
+        update_date: new Date(),
         [`standards.${standard_id}.begin`]: true,
         [`standards.${standard_id}.option`]: Number(option),
         [`standards.${standard_id}.start_date`]: new Date(),
@@ -63,6 +64,7 @@ class Portfolio {
       portfolio_id,
     }, {
       $set: {
+        update_date: new Date(),
         [`standards.${standard_id}.url`]: submission.url,
         [`standards.${standard_id}.details`]: submission.details,
         [`standards.${standard_id}.option`]: Number(submission.option),
@@ -75,6 +77,7 @@ class Portfolio {
       portfolio_id,
     }, {
       $set: {
+        update_date: new Date(),
         [`standards.${standard_id}.url`]: submission.url,
         [`standards.${standard_id}.details`]: submission.details,
         [`standards.${standard_id}.option`]: Number(submission.option),
