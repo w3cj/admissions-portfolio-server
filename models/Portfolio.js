@@ -29,7 +29,7 @@ class Portfolio {
     /* eslint-disable */
     portfolio.created = new Date();
     portfolio.portfolio_id = uuidV4();
-    portfolio.standards = [0, 1, 2, 3].reduce((standards, standard_id) => {
+    portfolio.standards = [0, 1, 2].reduce((standards, standard_id) => {
       standards[standard_id] = {
         standard_id,
         url: '',
