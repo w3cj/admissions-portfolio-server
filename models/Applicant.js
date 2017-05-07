@@ -15,7 +15,7 @@ class Applicant {
     this.applicants.index('email', { unique: true });
   }
   getAll() {
-    return this.applicants.find({});
+    return this.applicants.find({ archived: { $ne: true } });
   }
   getOne(id) {
     return this.applicants.findOne({
@@ -24,6 +24,15 @@ class Applicant {
   }
   create(applicant) {
     return verifyInsert(this.applicants, applicant, schema);
+  }
+  archive(id) {
+    return this.applicants.findOneAndUpdate({
+      _id: monk.id(id),
+    }, {
+      $set: {
+        archived: true,
+      },
+    });
   }
 }
 

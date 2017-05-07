@@ -18,6 +18,13 @@ router.get('/:applicant_id', (req, res, next) => {
     .catch(next);
 });
 
+router.post('/:applicant_id/archive', (req, res, next) => {
+  Applicant
+    .archive(req.params.applicant_id)
+    .then(result => res.json(result))
+    .catch(next);
+});
+
 router.post('/', authUtils.loggedIn, (req, res, next) => {
   Applicant
     .create(req.body)
