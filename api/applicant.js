@@ -11,6 +11,13 @@ router.get('/', authUtils.loggedIn, (req, res, next) => {
     .catch(next);
 });
 
+router.get('/archived', authUtils.loggedIn, (req, res, next) => {
+  Applicant
+    .getAllArchived()
+    .then(applicants => res.json(applicants))
+    .catch(next);
+});
+
 router.get('/:applicant_id', (req, res, next) => {
   Applicant
     .getOne(req.params.applicant_id)

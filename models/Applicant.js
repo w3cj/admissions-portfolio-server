@@ -17,6 +17,9 @@ class Applicant {
   getAll() {
     return this.applicants.find({ archived: { $ne: true } });
   }
+  getAllArchived() {
+    return this.applicants.find({ archived: { $eq: true } })
+  }
   getOne(id) {
     return this.applicants.findOne({
       _id: monk.id(id),
