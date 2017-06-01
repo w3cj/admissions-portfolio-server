@@ -54,4 +54,14 @@ router.post('/:portfolio_id/standard/:standard_id/submit', (req, res, next) => {
     .catch(next);
 });
 
+router.post('/:portfolio_id/standard/:standard_id/status/:status_id', (req, res, next) => {
+  Portfolio
+    .updateStandardStatus(
+      req.params.portfolio_id,
+      req.params.standard_id,
+      req.params.status_id)
+    .then(portfolio => res.json(portfolio))
+    .catch(next);
+});
+
 module.exports = router;

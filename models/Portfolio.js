@@ -87,6 +87,23 @@ class Portfolio {
       },
     });
   }
+  updateStandardStatus(portfolio_id, standard_id, status_id) {
+    const $set = {
+      [`standards.${standard_id}.status_id`]: status_id,
+      [`standards.${standard_id}.status_date`]: new Date(),
+    };
+
+    if (status_id === 0) {
+      $set[`standards.${standard_id}.submitted`] = false;
+      $set[`standards.${standard_id}.submit_date`] = null;
+    }
+
+    return this.portfolios.update({
+      portfolio_id,
+    }, {
+      $set,
+    });
+  }
 }
 
 module.exports = Portfolio;
