@@ -93,7 +93,7 @@ class Portfolio {
       [`standards.${standard_id}.status_date`]: new Date(),
     };
 
-    if (status_id === 0) {
+    if (status_id == 0) {
       $set[`standards.${standard_id}.submitted`] = false;
       $set[`standards.${standard_id}.submit_date`] = null;
     }

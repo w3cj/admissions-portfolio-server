@@ -4,4 +4,7 @@ module.exports = {
         "node": true
     },
     "extends": "airbnb-base",
+    rules: {
+      eqeqeq: 0
+    }
 };
